@@ -8,11 +8,19 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 import { HomeComponent } from './home/home.component';
 import { MaterialImportsModule } from './material-imports.module';
+import { ProblemListComponent } from './home/problem-list/problem-list.component';
+import { ProblemItemComponent } from './home/problem-list/problem-item/problem-item.component';
+import { WelcomeMessageComponent } from './home/welcome-message/welcome-message.component';
+import { SaveProblemComponent } from './home/save-problem/save-problem.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ProblemListComponent,
+    ProblemItemComponent,
+    WelcomeMessageComponent,
+    SaveProblemComponent
   ],
   imports: [
     BrowserModule,

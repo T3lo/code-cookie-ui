@@ -11,40 +11,9 @@
  -->
 Yo
 <mat-list role="list" id="lhs">
-    <mat-list-item role="listitem" class="lhs-item">
+    <mat-list-item role="listitem" class="lhs-item" *ngFor="let problem of listOfProblems; let ind=index">
         <div>
-            Item 1
+            Item {{ ind }}
         </div>
     </mat-list-item>
-    <mat-list-item role="listitem" class="lhs-item">
-        <div>
-            Item 2
-        </div>
-    </mat-list-item>
-    <mat-list-item role="listitem" class="lhs-item">
-        <div>
-            Item 3
-        </div>
-    </mat-list-item>
-    <mat-list-item role="listitem" class="lhs-item">
-        <div>
-            Item 4
-        </div>
-    </mat-list-item>
-    <mat-list-item role="listitem" class="lhs-item">
-        <div>
-            Item 5
-        </div>
-    </mat-list-item>
-    <mat-list-item role="listitem" class="lhs-item">
-        <div>
-            Item 6
-        </div>
-    </mat-list-item>
-</mat-list>
-
-<mat-list>
-    <mat-list-item> Pepper </mat-list-item>
-    <mat-list-item> Salt </mat-list-item>
-    <mat-list-item> Paprika </mat-list-item>
 </mat-list>
