@@ -9,11 +9,26 @@
     TODO: show problem details
 
  -->
-Yo
-<mat-list role="list" id="lhs">
-    <mat-list-item role="listitem" class="lhs-item" *ngFor="let problem of listOfProblems; let ind=index">
-        <div>
-            Item {{ ind }}
+
+<div class="container-fluid">
+
+    <div class="row" *ngIf="!appLoaded">
+        <div class="col">
+            <app-welcome-message></app-welcome-message>
         </div>
-    </mat-list-item>
-</mat-list>
+    </div>
+    <div class="row" *ngIf="appLoaded">
+        <div class="col-3">
+            <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action" *ngFor="let problem of listOfProblems; let ind=index">
+                    {{ problem.name }}
+                </button>
+            </div>
+        </div>
+        <div class="col-9">
+            <button type="button" class="btn btn-primary">Primary</button>
+        </div>
+    </div>
+</div>
+
+

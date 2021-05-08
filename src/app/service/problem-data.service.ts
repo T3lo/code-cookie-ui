@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Problem } from '../home/problem.model';
 
@@ -7,7 +8,10 @@ import { Problem } from '../home/problem.model';
 export class ProblemDataService {
 
   listOfProblems: Problem[];
-  constructor() {
+
+  constructor(
+    private httpClient: HttpClient
+  ) {
     this.listOfProblems = [];
     setTimeout(() => {
       for(let i=0;i<10;i++){

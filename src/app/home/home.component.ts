@@ -9,6 +9,7 @@ import { Problem } from './problem.model';
 })
 export class HomeComponent implements OnInit {
 
+  appLoaded: boolean;
   listOfProblems: Problem[];
   selectedProblemIndex: number;
   
@@ -16,10 +17,15 @@ export class HomeComponent implements OnInit {
     private problemDataService: ProblemDataService
   ) {
     this.listOfProblems = this.problemDataService.listOfProblems;
+    this.appLoaded = false;
     this.selectedProblemIndex = -1;
   }
 
   ngOnInit(): void {
+    this.problemDataService.findAll(() => {
+      this.appLoaded = true;
+      console.log("App loaded")
+    })
   }
 
 }
