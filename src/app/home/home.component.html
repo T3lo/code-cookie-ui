@@ -11,7 +11,6 @@
  -->
 
 <div class="container-fluid">
-
     <div class="row" *ngIf="!appLoaded">
         <div class="col">
             <app-welcome-message></app-welcome-message>
@@ -19,14 +18,18 @@
     </div>
     <div class="row" *ngIf="appLoaded">
         <div class="col-3">
-            <div class="list-group">
-                <button type="button" class="list-group-item list-group-item-action" *ngFor="let problem of listOfProblems; let ind=index">
-                    {{ problem.name }}
-                </button>
-            </div>
+            <app-problem-list></app-problem-list>
         </div>
         <div class="col-9">
             <button type="button" class="btn btn-primary">Primary</button>
+            <!-- 
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade" [id]="'problem-'" role="tabpanel">
+
+                    </div>
+                </div>
+             -->
+             {{ selectedProblem.name }}
         </div>
     </div>
 </div>

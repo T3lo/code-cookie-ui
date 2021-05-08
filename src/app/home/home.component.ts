@@ -10,22 +10,22 @@ import { Problem } from './problem.model';
 export class HomeComponent implements OnInit {
 
   appLoaded: boolean;
+  selectedProblem: Problem;
   listOfProblems: Problem[];
-  selectedProblemIndex: number;
   
   constructor(
     private problemDataService: ProblemDataService
   ) {
     this.listOfProblems = this.problemDataService.listOfProblems;
     this.appLoaded = false;
-    this.selectedProblemIndex = -1;
+    this.selectedProblem = this.problemDataService.selectedProblem;
   }
 
   ngOnInit(): void {
     this.problemDataService.findAll(() => {
       this.appLoaded = true;
-      console.log("App loaded")
-    })
+      console.log("App loaded");
+    });
   }
 
 }

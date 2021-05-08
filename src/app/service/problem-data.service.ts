@@ -8,11 +8,17 @@ import { Problem } from '../home/problem.model';
 export class ProblemDataService {
 
   listOfProblems: Problem[];
+  selectedProblem: Problem;
 
   constructor(
     private httpClient: HttpClient
   ) {
     this.listOfProblems = [];
+    this.selectedProblem = {
+      name: "NA",
+      link: "",
+      id: -2
+    };
     setTimeout(() => {
       for(let i=0;i<10;i++){
         this.listOfProblems.push(
@@ -23,6 +29,14 @@ export class ProblemDataService {
           }
         );
       }
+      if (this.listOfProblems.length==0) {
+        this.selectedProblem.id = -1;
+        this.selectedProblem.name = "Nothins";
+      }
+      else {
+        Object.assign(this.selectedProblem, this.listOfProblems[0]);
+      }
+
       console.log(this.listOfProblems);
     }, 5*1000);
   }
