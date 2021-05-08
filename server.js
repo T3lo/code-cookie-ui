@@ -3,10 +3,10 @@ const path = require('path')
 
 const app = express()
 
-app.use(express.static('./dist/ui-service'));
+app.use(express.static('./dist/code-cookie'));
 
 app.get('/*', (req, res) => 
-    res.sendFile('index.html', {root: 'dist/ui-service'}),
+    res.sendFile('index.html', {root: 'dist/code-cookie'}),
 );
 
 app.listen(process.env.PORT || 8080);
