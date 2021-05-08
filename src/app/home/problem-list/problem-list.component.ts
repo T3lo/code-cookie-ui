@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AppStateService } from 'src/app/service/app-state.service';
 import { ProblemDataService } from 'src/app/service/problem-data.service';
 import { Problem } from '../problem.model';
 
@@ -12,7 +13,8 @@ export class ProblemListComponent implements OnInit {
   listOfProblems: Problem[];
 
   constructor(
-    private problemDataService: ProblemDataService
+    private problemDataService: ProblemDataService,
+    private appStateService: AppStateService
   ) {
     this.listOfProblems = this.problemDataService.listOfProblems;
   }
@@ -21,14 +23,13 @@ export class ProblemListComponent implements OnInit {
   }
 
   selectProblem(problem: Problem, ind: number): void {
-    console.log("Selected: " + ind);
-    console.log(problem);
-    this.problemDataService.appState.addFlag = false;
-    this.problemDataService.appState.selectProblem = problem;
+    this.appStateService.appState.addFlag = false;
+    this.appStateService.appState.selectProblem = problem;
+    this.appStateService.appState.current = ind;
   }
 
   addProblem() {
-    this.problemDataService.appState.addFlag = true;
+    this.appStateService.appState.addFlag = true;
   }
 
 }

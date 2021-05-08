@@ -1,7 +1,8 @@
 <button type="button" class="btn btn-info" (click)="addProblem()">Add</button>
 
 <div class="list-group" id="list-tab" role="tablist">
-    <a *ngFor="let problem of listOfProblems; let ind=index" class="list-group-item list-group-item-action"
+    <a *ngFor="let problem of listOfProblems; let ind=index" 
+        class="list-group-item list-group-item-action"
         [id]="'problem-list-item-'+ind" data-bs-toggle="list" [href]="'#'" role="tab" aria-controls="list-home"
         (click)="selectProblem(problem, ind)">
         {{ problem.name }}

@@ -12,6 +12,7 @@ import { ProblemItemComponent } from './home/problem-list/problem-item/problem-i
 import { WelcomeMessageComponent } from './home/welcome-message/welcome-message.component';
 import { SaveProblemComponent } from './home/save-problem/save-problem.component';
 import { ProblemDetailsComponent } from './home/problem-details/problem-details.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProblemDetailsComponent } from './home/problem-details/problem-details.
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

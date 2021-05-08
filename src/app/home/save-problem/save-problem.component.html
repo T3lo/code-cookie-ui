@@ -1,4 +1,15 @@
-<p>save-problem works!</p>
-<!-- {{ (appState && appState.selectProblem) ? "NA" : appState.selectProblem.name }} || -->
-{{ appState.loaded }} ||
-{{ appState.addFlag }}
+<h1>Add Problem</h1>
+
+<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">@</span>
+    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+        aria-describedby="basic-addon1" [(ngModel)]="newProblem.name">
+</div>
+
+<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">@</span>
+    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+        aria-describedby="basic-addon1" [(ngModel)]="newProblem.link">
+</div>
+
+<button type="button" class="btn btn-primary" (click)="saveProblem()">Save</button>

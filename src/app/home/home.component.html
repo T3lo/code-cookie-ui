@@ -1,12 +1,7 @@
 <!-- 
-    LHS list
-    TODO: List of problems
-    TODO: add problems button
-    
     RHS
-    TODO: show welcome message when app is opened
-    TODO: add problems screen
-    TODO: show problem details
+    TODO show welcome message when app is opened
+    TODO show nothing selected if it comes to that
 
  -->
 
@@ -22,7 +17,8 @@
         </div>
         <div class="col-9">
             <app-save-problem *ngIf="appState.addFlag"></app-save-problem>
-            <app-problem-details *ngIf="!appState.addFlag"></app-problem-details>
+            <app-problem-details *ngIf="!appState.addFlag && appState.current!=-1"></app-problem-details>
+            <div *ngIf="!appState.addFlag && appState.current==-1">NA</div>
         </div>
     </div>
 </div>

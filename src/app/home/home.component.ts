@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppStateService } from '../service/app-state.service';
 import { ProblemDataService } from '../service/problem-data.service';
 import { AppState } from './app-state.model';
 import { Problem } from './problem.model';
@@ -14,10 +15,11 @@ export class HomeComponent implements OnInit {
   listOfProblems: Problem[];
   
   constructor(
-    private problemDataService: ProblemDataService
+    private problemDataService: ProblemDataService,
+    private appStateService: AppStateService
   ) {
     this.listOfProblems = this.problemDataService.listOfProblems;
-    this.appState = this.problemDataService.appState;
+    this.appState = this.appStateService.appState;
   }
 
   ngOnInit(): void {

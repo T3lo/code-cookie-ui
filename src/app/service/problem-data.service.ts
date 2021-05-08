@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AppState } from '../home/app-state.model';
 import { Problem } from '../home/problem.model';
+import { AppStateService } from './app-state.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +10,13 @@ import { Problem } from '../home/problem.model';
 export class ProblemDataService {
 
   listOfProblems: Problem[];
-  appState: AppState;
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private appStateService: AppStateService
   ) {
     this.listOfProblems = [];
-    this.appState = new AppState();
-    setTimeout(() => {
+    this.delay(() => {
       for(let i=0;i<10;i++){
         this.listOfProblems.push(
           {
@@ -26,31 +26,53 @@ export class ProblemDataService {
           }
         );
       }
-      if (this.listOfProblems.length==0) {
-        this.appState.selectProblem = new Problem();
+      this.appStateService.appState.total = this.listOfProblems.length;
+      this.appStateService.appState.current = 0;
+      if (this.listOfProblems.length!=0) {
+        this.appStateService.appState.selectProblem = this.listOfProblems[0];
       }
-      else {
-        Object.assign(this.appState.selectProblem, this.listOfProblems[0]);
-      }
-      this.appState.loaded = true;
+      this.appStateService.appState.loaded = true;
       console.log(this.listOfProblems);
-    }, 5*1000);
+    });
   }
 
   findAll(task: any) {
-    setTimeout(() => {
-      if (task) {
-        task();
-      }
-    }, 2*1000);
+    this.delay(task);
   }
 
-  save() {
-
+  save(problem: Problem) {
+    problem.id = this.listOfProblems.length;
+    this.appStateService.appState.total++;
+    this.delay(() => this.listOfProblems.push(problem));
   }
 
-  deleteByIndex() {
+  deleteByIndex(ind: number) {
+    if (this.appStateService.appState.selectProblem == this.listOfProblems[ind]) {
+      this.appStateService.appState.current = -1;
+      this.appStateService.appState.selectProblem = new Problem();
+    }
+    this.appStateService.appState.total--;
+    this.delay(() => this.listOfProblems.splice(ind, 1));
+  }
 
+  nextProblem() {
+    if (this.appStateService.appState.total != this.appStateService.appState.current+1) {
+      this.appStateService.appState.current++;
+      this.appStateService.appState.selectProblem = this.listOfProblems[this.appStateService.appState.current];
+    }
+  }
+
+  previousProblem() {
+    if (this.appStateService.appState.current>0) {
+      this.appStateService.appState.current--;
+      this.appStateService.appState.selectProblem = this.listOfProblems[this.appStateService.appState.current];
+    }
+  }
+
+  delay(task: any) {
+    if (task) {
+      setTimeout(task, 2*1000);
+    }
   }
 
 }
