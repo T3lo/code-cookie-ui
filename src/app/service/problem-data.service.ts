@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AppState } from '../home/app-state.model';
 import { Problem } from '../home/problem.model';
 
 @Injectable({
@@ -8,17 +9,13 @@ import { Problem } from '../home/problem.model';
 export class ProblemDataService {
 
   listOfProblems: Problem[];
-  selectedProblem: Problem;
+  appState: AppState;
 
   constructor(
     private httpClient: HttpClient
   ) {
     this.listOfProblems = [];
-    this.selectedProblem = {
-      name: "NA",
-      link: "",
-      id: -2
-    };
+    this.appState = new AppState();
     setTimeout(() => {
       for(let i=0;i<10;i++){
         this.listOfProblems.push(
@@ -30,13 +27,12 @@ export class ProblemDataService {
         );
       }
       if (this.listOfProblems.length==0) {
-        this.selectedProblem.id = -1;
-        this.selectedProblem.name = "Nothins";
+        this.appState.selectProblem = new Problem();
       }
       else {
-        Object.assign(this.selectedProblem, this.listOfProblems[0]);
+        Object.assign(this.appState.selectProblem, this.listOfProblems[0]);
       }
-
+      this.appState.loaded = true;
       console.log(this.listOfProblems);
     }, 5*1000);
   }

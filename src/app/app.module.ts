@@ -11,6 +11,7 @@ import { ProblemListComponent } from './home/problem-list/problem-list.component
 import { ProblemItemComponent } from './home/problem-list/problem-item/problem-item.component';
 import { WelcomeMessageComponent } from './home/welcome-message/welcome-message.component';
 import { SaveProblemComponent } from './home/save-problem/save-problem.component';
+import { ProblemDetailsComponent } from './home/problem-details/problem-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SaveProblemComponent } from './home/save-problem/save-problem.component
     ProblemListComponent,
     ProblemItemComponent,
     WelcomeMessageComponent,
-    SaveProblemComponent
+    SaveProblemComponent,
+    ProblemDetailsComponent
   ],
   imports: [
     BrowserModule,

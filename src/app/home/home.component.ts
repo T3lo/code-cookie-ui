@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProblemDataService } from '../service/problem-data.service';
+import { AppState } from './app-state.model';
 import { Problem } from './problem.model';
 
 @Component({
@@ -9,23 +10,20 @@ import { Problem } from './problem.model';
 })
 export class HomeComponent implements OnInit {
 
-  appLoaded: boolean;
-  selectedProblem: Problem;
+  appState: AppState;
   listOfProblems: Problem[];
   
   constructor(
     private problemDataService: ProblemDataService
   ) {
     this.listOfProblems = this.problemDataService.listOfProblems;
-    this.appLoaded = false;
-    this.selectedProblem = this.problemDataService.selectedProblem;
+    this.appState = this.problemDataService.appState;
   }
 
   ngOnInit(): void {
-    this.problemDataService.findAll(() => {
-      this.appLoaded = true;
-      console.log("App loaded");
-    });
   }
 
+  addProblem() {
+    
+  }
 }

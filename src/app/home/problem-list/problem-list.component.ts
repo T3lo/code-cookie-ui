@@ -23,6 +23,12 @@ export class ProblemListComponent implements OnInit {
   selectProblem(problem: Problem, ind: number): void {
     console.log("Selected: " + ind);
     console.log(problem);
-    Object.assign(this.problemDataService.selectedProblem, problem);
+    this.problemDataService.appState.addFlag = false;
+    this.problemDataService.appState.selectProblem = problem;
   }
+
+  addProblem() {
+    this.problemDataService.appState.addFlag = true;
+  }
+
 }

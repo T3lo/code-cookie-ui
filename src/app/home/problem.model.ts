@@ -4,7 +4,7 @@ export class Problem {
     link: string;
 
     constructor() {
-        this.name = "";
-        this.link = "";
+        this.name = "Name";
+        this.link = "Link";
     }
 }
