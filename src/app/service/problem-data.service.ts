@@ -11,7 +11,7 @@ export class ProblemDataService {
 
   listOfProblems: Problem[];
   // url: string = "http://localhost:8081/problem";
-  url: string = "https://code-cookie-problem-service.herokuapp.com";
+  url: string = "https://code-cookie-problem-service.herokuapp.com/problem";
 
   /*
       API implementation:
