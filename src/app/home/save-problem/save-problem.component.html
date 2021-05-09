@@ -1,15 +1,15 @@
 <h1>Add Problem</h1>
 
 <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">@</span>
-    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+    <span class="input-group-text" id="basic-addon1">Name</span>
+    <input type="text" class="form-control" placeholder="eg:- Coin change" aria-label="Username"
         aria-describedby="basic-addon1" [(ngModel)]="newProblem.name">
 </div>
 
 <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">@</span>
-    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-        aria-describedby="basic-addon1" [(ngModel)]="newProblem.link">
+    <span class="input-group-text" id="basic-addon2">Link</span>
+    <input type="text" class="form-control" placeholder="eg:- https://example.com" aria-label="Username"
+        aria-describedby="basic-addon2" [(ngModel)]="newProblem.link">
 </div>
 
 <button type="button" class="btn btn-primary" (click)="saveProblem()">Save</button>

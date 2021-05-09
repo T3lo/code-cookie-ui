@@ -29,6 +29,7 @@ export class ProblemListComponent implements OnInit {
     this.appState.addFlag = false;
     this.appState.selectProblem = problem;
     this.appState.current = ind;
+    this.appState.showFlag = true;
   }
 
   addProblem() {
