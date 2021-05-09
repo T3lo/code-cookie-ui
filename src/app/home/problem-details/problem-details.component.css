@@ -1,3 +1,8 @@
 .header {
-    border: 1px solid;
+    /* text-align: center; */
+}
+
+.heading-text {
+    font-size: 30px;
+    text-align: center;
 }
