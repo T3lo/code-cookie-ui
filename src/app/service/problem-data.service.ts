@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Problem } from '../home/problem.model';
 import { AppStateService } from './app-state.service';
 
@@ -9,8 +10,7 @@ import { AppStateService } from './app-state.service';
 export class ProblemDataService {
 
   listOfProblems: Problem[];
-  url: string = "http://localhost:8081/problem";
-  // url: string = "https://code-cookie-problem-service.herokuapp.com/problem";
+  url: string = environment.problemServiceUrl + "/problem";
 
   constructor(
     private httpClient: HttpClient,

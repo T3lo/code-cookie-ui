@@ -2,16 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AppStateService } from './app-state.service';
 import { Attempt } from '../home/attempt.model';
-import { KeyValue } from '@angular/common';
 import { AppState } from '../home/app-state.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AttemptService {
 
-  url: string = "http://localhost:8081/attempt";
-  // url: string = "https://code-cookie-problem-service.herokuapp.com/problem";
+  url: string = environment.problemServiceUrl + "/attempt";
   appState: AppState;
 
   constructor(
