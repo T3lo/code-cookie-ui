@@ -1,9 +1,10 @@
 export class Problem {
-    id?: number;
+    id: number;
     name: string;
     link: string;
 
     constructor() {
+        this.id = NaN;
         this.name = "";
         this.link = "";
     }

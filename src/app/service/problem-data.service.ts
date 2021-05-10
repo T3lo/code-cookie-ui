@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AppState } from '../home/app-state.model';
 import { Problem } from '../home/problem.model';
 import { AppStateService } from './app-state.service';
 
@@ -10,14 +9,8 @@ import { AppStateService } from './app-state.service';
 export class ProblemDataService {
 
   listOfProblems: Problem[];
-  // url: string = "http://localhost:8081/problem";
-  url: string = "https://code-cookie-problem-service.herokuapp.com/problem";
-
-  /*
-      API implementation:
-        TODO delete
-      
-  */
+  url: string = "http://localhost:8081/problem";
+  // url: string = "https://code-cookie-problem-service.herokuapp.com/problem";
 
   constructor(
     private httpClient: HttpClient,

@@ -1,18 +1,33 @@
 <button type="button" class="btn btn-info" (click)="addProblem()">Add</button>
 
-<!-- <div class="list-group" id="list-tab" role="tablist">
-    <a *ngFor="let problem of listOfProblems; let ind=index" 
-        [ngClass]="'list-group-item list-group-item-action' + (appState.current==ind ? ' action' : '')"
-        [id]="'problem-list-item-'+ind" data-bs-toggle="list" [href]="'#'" role="tab" aria-controls="list-home"
-        (click)="selectProblem(problem, ind)">
-        {{ problem.name }}
-    </a>
-</div> -->
-
 <ul class="list-group">
     <li *ngFor="let problem of listOfProblems; let ind=index" 
         [ngClass]="'list-group-item list-group-item-action' + (appState.current==ind ? ' selected-item' : '')"
         (click)="selectProblem(problem, ind)">
-        {{ problem.name }}
+        <div class="row">
+            <div class="col-1">
+                <a [href]="problem.link" target="_blank">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-up-right-square-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM5.904 10.803 10 6.707v2.768a.5.5 0 0 0 1 0V5.5a.5.5 0 0 0-.5-.5H6.525a.5.5 0 1 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 .707.707z" />
+                        </svg>
+                    </span>
+                </a>
+            </div>
+            <div class="col-7">
+                <span>{{ problem.name }}</span>
+            </div>
+            <div class="col-3">
+                <span *ngIf="appState.attemptMapping && appState.attemptMapping[problem.id]>0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                    </svg>
+                </span>
+            </div>
+        </div>
     </li>
 </ul>

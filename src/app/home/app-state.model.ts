@@ -10,6 +10,8 @@ export class AppState {
 
     selectProblem: Problem;
 
+    attemptMapping: any = {};
+
     constructor() {
         this.loaded = false;
         this.addFlag = false;
@@ -17,5 +19,6 @@ export class AppState {
         this.selectProblem = new Problem();
         this.total = 0;
         this.current = 0;
+        this.attemptMapping = {}
     }
 }
